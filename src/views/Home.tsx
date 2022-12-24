@@ -5,7 +5,7 @@ export const Home = () => {
     const onPageLoad = () => {
       const script = document.createElement("script");
       script.id = "liquid-script";
-      script.src = "/src/lib/demo.js";
+      script.src = "/demo.js";
       document.body.appendChild(script);
     };
 
