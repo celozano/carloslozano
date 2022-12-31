@@ -29,7 +29,7 @@
     winsize = { width: window.innerWidth, height: window.innerHeight };
   };
   calcWinsize();
-  window.addEventListener("resize", calcWinsize);
+  window.addEventListener('resize', calcWinsize);
 
   const getMousePos = (ev) => {
     let posx = 0;
@@ -46,7 +46,7 @@
   };
 
   let mousePos = { x: winsize.width / 2, y: winsize.height / 2 };
-  window.addEventListener("mousemove", (ev) => (mousePos = getMousePos(ev)));
+  window.addEventListener('mousemove', (ev) => (mousePos = getMousePos(ev)));
 
   const createBlotterText = () => {
     const text = new Blotter.Text(textEl?.innerHTML, {
@@ -103,8 +103,8 @@
   const body = document.body;
   const docEl = document.documentElement;
 
-  const elem = document.querySelector(".content__text");
-  const textEl = elem.querySelector("span.content__text-inner");
+  const elem = document.querySelector('.content__text');
+  const textEl = elem.querySelector('span.content__text-inner');
 
   if (textEl) {
     createBlotterText();

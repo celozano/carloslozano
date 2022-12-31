@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet } from 'react-router-dom';
 
 export const Layout = () => {
   return (
@@ -7,11 +7,14 @@ export const Layout = () => {
         <Link className="hover:underline" to="/">
           home
         </Link>
+        <Link className="hover:underline" to="/work">
+          work
+        </Link>
         <Link className="hover:underline" to="/about">
           about
         </Link>
       </nav>
-      <main className="flex items-center justify-center">
+      <main className="flex-1">
         <Outlet />
       </main>
       <footer className="flex justify-between text-2xl font-black">
