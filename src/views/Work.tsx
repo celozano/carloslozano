@@ -1,36 +1,43 @@
-import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
-const GARITAS = 'garitastj';
-const INVOICES = 'invoices';
-const URL_SHORTENER = 'url-shortener';
+const GARITAS = "garitastj";
+const INVOICES = "invoices";
+const URL_SHORTENER = "url-shortener";
+const WORDLE = "wordle";
 
 const projects = [
   {
     id: GARITAS,
-    path: '/work/garitastj',
-    link: 'https://garitastj.com',
+    path: "/work/garitastj",
+    link: "https://garitastj.com",
     description:
-      'Web application that shows the border wait times across the San Diego - Tijuana border.',
+      "Web application that shows the border wait times across the San Diego - Tijuana border.",
   },
   {
     id: INVOICES,
-    path: '/work/invoices',
-    link: 'https://develop--sergios-invoices.netlify.app',
+    path: "/work/invoices",
+    link: "https://develop--sergios-invoices.netlify.app",
     description:
-      'Invoice system for an auto shop that helps the user creating and printing invoices.',
+      "Invoice system for an auto shop that helps the user creating and printing invoices.",
   },
   {
     id: URL_SHORTENER,
-    path: '/work/url-shortener',
-    link: 'https://urlshortenerv.netlify.app',
-    description: 'URL shortener to create short URLs.',
+    path: "/work/url-shortener",
+    link: "https://urlshortenerv.netlify.app",
+    description: "URL shortener to create short URLs.",
+  },
+  {
+    id: WORDLE,
+    path: "/work/wordle",
+    link: "https://dd3-wordle.netlify.app",
+    description: "Wordle clone.",
   },
 ];
 
 export const Work = () => {
   const params = useParams();
-  const [hoverItem, setHoverItem] = useState('');
+  const [hoverItem, setHoverItem] = useState("");
 
   const project = projects.find(({ id }) => id === params?.id);
 
@@ -44,13 +51,18 @@ export const Work = () => {
                 className="pointer-events-none hover:underline md:pointer-events-auto"
                 to={path}
                 onMouseOver={() => setHoverItem(id)}
-                onMouseOut={() => setHoverItem('')}
+                onMouseOut={() => setHoverItem("")}
               >
                 {id}
               </Link>
               <span className="block text-base font-normal md:hidden">
                 <p className=" text-gray-800">{description}</p>
-                <a className="text-blue-600 hover:underline" href={link}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                  href={link}
+                >
                   {link}
                 </a>
               </span>
@@ -60,7 +72,7 @@ export const Work = () => {
       </div>
       <div className="hidden flex-1 items-center justify-center md:flex">
         {project === undefined ? (
-          <span className={`${hoverItem === '' ? 'hidden' : 'block'}`}>
+          <span className={`${hoverItem === "" ? "hidden" : "block"}`}>
             <img
               className="max-h-[calc(100vh-15em)] border-2 border-black object-cover"
               src={`/${hoverItem}.png`}
@@ -74,7 +86,11 @@ export const Work = () => {
               src={`/${project.id}.png`}
               alt={`${project.id}`}
             />
-            <a className="text-blue-600 hover:underline" href={project.link}>
+            <a
+              className="text-blue-600 hover:underline"
+              href={project.link}
+              target="_blank"
+            >
               {project.link}
             </a>
             <p>{project.description}</p>
