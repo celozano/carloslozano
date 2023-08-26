@@ -48,7 +48,9 @@ export const Work = () => {
           {projects.map(({ id, path, description, link }) => (
             <li key={id} className="text-xl font-bold">
               <Link
-                className="pointer-events-none hover:underline md:pointer-events-auto"
+                className={`${
+                  params?.id === id ? "md:underline" : ""
+                } pointer-events-none hover:underline md:pointer-events-auto`}
                 to={path}
                 onMouseOver={() => setHoverItem(id)}
                 onMouseOut={() => setHoverItem("")}
