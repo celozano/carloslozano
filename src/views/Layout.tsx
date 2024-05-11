@@ -24,14 +24,7 @@ export const Layout = () => {
       <main className="flex-1">
         <Outlet />
       </main>
-      <footer className="flex justify-between text-2xl font-black">
-        <a
-          className="hover:underline"
-          href="mailto:me@carloslozano.dev"
-          target="_blank"
-        >
-          e-mail
-        </a>
+      <footer className="flex flex-row-reverse text-2xl font-black">
         <a
           className="hover:underline"
           href="https://github.com/celozano"
